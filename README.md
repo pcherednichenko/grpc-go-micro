@@ -7,6 +7,13 @@ Count request, write logs, use Redis and Go-Micro, with generated code for Go an
 - **srv** - a GRPC counter service with Redis
 - **cli** - a GRPC client that calls the service once
 
+
+Before run service you need to run everything you need:
+```
+$ consul agent -dev
+$ redis-server
+```
+
 Run Service
 ```
 $ go run srv/main.go
