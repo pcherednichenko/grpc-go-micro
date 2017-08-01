@@ -13,7 +13,6 @@ services:
       - all
   app:
     image: golang:1.8
-    build: ./greeter/
     volumes:
       - .:/usr/local/app/src/
     working_dir: /usr/local/app/src/greeter
