@@ -1,0 +1,28 @@
+version: "2"
+
+services:
+  consul1:
+    image: "progrium/consul:latest"
+    container_name: consul
+    ports:
+      - "8400:8400"
+      - "8500:8500"
+      - "8600:53"
+    command: "consul agent -dev"
+    networks:
+      - all
+  app:
+    image: golang:1.8
+    build: ./greeter/
+    volumes:
+      - .:/usr/local/app/src/
+    working_dir: /usr/local/app/src/greeter
+    command: go run srv/main.go
+    networks:
+      - all
+    ports:
+      - "80:80"
+networks:
+  all:
+     driver: bridge
+

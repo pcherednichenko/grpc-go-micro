@@ -22,7 +22,7 @@ $ go run srv/main.go
 2017/07/31 13:40:26 Registering node: go.micro.srv.greeter-aa015b05-75dc-11e7-821e-784f43936a40
 ```
 
-Test Service
+Test Go Client
 ```
 $ go run cli/main.go
 Hello Cryptopay Counter = get counter: 1
@@ -30,6 +30,15 @@ $ go run cli/main.go
 Hello Cryptopay Counter = get counter: 2
 $ go run cli/main.go
 Hello Cryptopay Counter = get counter: 3
+```
+Test Ruby Client
+```
+cli/ruby> $ ruby test.rb
+"Greeting: Hello Cryptopay Ruby Counter = get counter: 1"
+cli/ruby> $ ruby test.rb
+"Greeting: Hello Cryptopay Ruby Counter = get counter: 2"
+cli/ruby> $ ruby test.rb
+"Greeting: Hello Cryptopay Ruby Counter = get counter: 3"
 ```
 
 To compile Ruby code from .proto file
