@@ -23,8 +23,11 @@ func (s *Say) Hello(ctx context.Context, req *hello.Request, rsp *hello.Response
 	if err != nil {
 		return
 	}
-	counter := client.Get(counter)
-	rsp.Msg = "Hello " + req.Name + " Counter = " + counter.String()
+	counter, err := client.Get(counter).Result()
+	if err != nil {
+		return
+	}
+	rsp.Msg = "Hello " + req.Name + ". Counter=" + counter
 	return
 }
 
